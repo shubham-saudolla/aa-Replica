@@ -24,7 +24,12 @@ public class Pin : MonoBehaviour
 		if(col.tag == "Rotator")
 		{
 			transform.SetParent(col.transform); //parenting the pin to the rotator
+			//TODO:col.GetComponent<Rotator>().speed *= -1f;
 			_isPinned = true;
+		}
+		else if(col.tag == "Pin")
+		{
+			GameControl.instance.EndGame();
 		}
 	}
 }
