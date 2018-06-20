@@ -6,6 +6,7 @@ https://github.com/shubham-saudolla
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameControl : MonoBehaviour
 {
@@ -38,7 +39,12 @@ public class GameControl : MonoBehaviour
 		spawner.enabled = false; //disable spawning
 
 		animator.SetTrigger("EndGame");
-		
+
 		Debug.Log("END GAME");
+	}
+
+	public void RestartLevel() //called at the end of the EndGame animation by the animator
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 }
