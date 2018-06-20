@@ -12,6 +12,7 @@ public class GameControl : MonoBehaviour
 	public static GameControl instance; //using a singleton pattern
 	public Rotator rotator; //references in the inspector
 	public Spawner spawner;
+	public Animator animator; //a reference to the animator is required to play an animation
 	private bool _gameEnded = false;
 	void Awake ()
 	{
@@ -35,6 +36,9 @@ public class GameControl : MonoBehaviour
 		_gameEnded = true;
 		rotator.enabled = false; //disable rotation
 		spawner.enabled = false; //disable spawning
+
+		animator.SetTrigger("EndGame");
+		
 		Debug.Log("END GAME");
 	}
 }
