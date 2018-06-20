@@ -34,6 +34,7 @@ public class GameControl : MonoBehaviour
 			return;
 		}
 
+		Score.canScore = false; //disables the score method
 		_gameEnded = true;
 		rotator.enabled = false; //disable rotation
 		spawner.enabled = false; //disable spawning

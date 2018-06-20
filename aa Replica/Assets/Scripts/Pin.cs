@@ -21,15 +21,21 @@ public class Pin : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.tag == "Rotator")
+		if(col.tag == "Pin")
+		{
+			GameControl.instance.EndGame();
+		}
+		else if(col.tag == "Rotator")
 		{
 			transform.SetParent(col.transform); //parenting the pin to the rotator
 			//TODO: col.GetComponent<Rotator>().speed *= -1f;
+
+			if(Score.canScore)
+			{
+				Score.pinCount++;
+			}
+			
 			_isPinned = true;
-		}
-		else if(col.tag == "Pin")
-		{
-			GameControl.instance.EndGame();
 		}
 	}
 }
