@@ -10,12 +10,12 @@ using UnityEngine;
 public class Pin : MonoBehaviour
 {
 	public float speed = 20f;
-	private bool isPinned = false;
+	private bool _isPinned = false;
 	public Rigidbody2D rb; //drag in the rigidbody in the inspector
 	
 	void Update () 
 	{
-		if(!isPinned)
+		if(!_isPinned)
 			rb.MovePosition(rb.position + Vector2.up * speed* Time.deltaTime); //using rb.position as iit returns a Vector2. Transform.position returns a Vector3
 	}
 
@@ -24,7 +24,7 @@ public class Pin : MonoBehaviour
 		if(col.tag == "Rotator")
 		{
 			transform.SetParent(col.transform); //parenting the pin to the rotator
-			isPinned = true;
+			_isPinned = true;
 		}
 	}
 }
