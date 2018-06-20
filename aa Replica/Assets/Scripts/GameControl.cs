@@ -38,9 +38,8 @@ public class GameControl : MonoBehaviour
 		_gameEnded = true;
 		rotator.enabled = false; //disable rotation
 		spawner.enabled = false; //disable spawning
-
 		animator.SetTrigger("EndGame");
-
+		AudioManager.instance.Play("hitPin");
 		Debug.Log("END GAME");
 	}
 

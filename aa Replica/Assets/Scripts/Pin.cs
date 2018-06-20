@@ -32,6 +32,7 @@ public class Pin : MonoBehaviour
 
 			if(Score.canScore)
 			{
+				AudioManager.instance.Play("hitRotator");
 				Score.pinCount++;
 			}
 			
